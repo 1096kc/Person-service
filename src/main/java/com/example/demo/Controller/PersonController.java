@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.*;
 @Component
 @CrossOrigin
 public class PersonController {
-//mengyu wants to collaborate conflicts
+
+//mengyu wants to
     @Autowired
     private PersonService personService;
 
