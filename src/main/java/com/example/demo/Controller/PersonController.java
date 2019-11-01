@@ -22,7 +22,7 @@ public class PersonController {
     private PersonService personService;
 
     @Autowired
-    private PersonMarshaller marsheller;
+    private PersonMarshaller marshaller;
 
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
@@ -34,11 +34,11 @@ public class PersonController {
     }
     )
     public PersonDTO create(@RequestBody PersonDTO dto) {
-        Person person = marsheller.convertToModel(dto);
+        Person person = marshaller.convertToModel(dto);
 
         person = personService.create(person);
 
-        return marsheller.convertTODTO(person);
+        return marshaller.convertTODTO(person);
     }
 
     @GetMapping(value = "/{id}", produces = "application/json")
@@ -53,7 +53,7 @@ public class PersonController {
     public PersonDTO findById(@PathVariable("id") Long id) {
         Person person = personService.findById(id);
 
-        return marsheller.convertTODTO(person);
+        return marshaller.convertTODTO(person);
     }
 
     @DeleteMapping(value = "/{id}")
@@ -80,10 +80,10 @@ public class PersonController {
     )
     public PersonDTO update(@PathVariable("id") Long id,
                                @RequestBody PersonDTO dto) {
-       Person person = marsheller.convertToModel(dto);
+       Person person = marshaller.convertToModel(dto);
        person.setId(id);
        person = personService.update(person);
-       PersonDTO dtoToReturn =  marsheller.convertTODTO(person);
+       PersonDTO dtoToReturn =  marshaller.convertTODTO(person);
 
        return dtoToReturn;
     }

@@ -11,16 +11,16 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
-    String firstName;
+    private String firstName;
 
-    String lastName;
+    private String lastName;
 
 
-    String email;
+    private String email;
 
-    Double score;
+    private Double score;
 
     public Long getId() {
         return id;
