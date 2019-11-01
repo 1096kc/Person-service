@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class PersonController {
 
-//mengyu wants to
+//mengyu wants to check some function
     @Autowired
     private PersonService personService;
 
