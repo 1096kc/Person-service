@@ -6,6 +6,8 @@ import com.example.demo.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class PersonDaoImpl implements PersonDao {
 
@@ -30,5 +32,10 @@ public class PersonDaoImpl implements PersonDao {
     @Override
     public Person update(Person person) {
         return personRepository.save(person);
+    }
+
+    @Override
+    public List<Person> findAll() {
+        return personRepository.findAll();
     }
 }

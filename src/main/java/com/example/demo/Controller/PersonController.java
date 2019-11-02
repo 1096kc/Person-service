@@ -12,6 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping("/person")
 @Component
@@ -57,6 +60,29 @@ public class PersonController {
 
         return marshaller.convertTODTO(person);
     }
+
+    @GetMapping(value = "/All", produces = "application/json")
+    @ApiOperation(value = "This API call is used to retrieve all people", response = PersonDTO.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully found"),
+            @ApiResponse(code = 404, message = "The specified was not found"),
+            @ApiResponse(code = 400, message = "Missing required parameters"),
+            @ApiResponse(code = 500, message = "Service is having difficulties")
+    }
+    )
+    public List<PersonDTO> findAll() {
+
+        List<Person> personList = personService.findAll();
+        List<PersonDTO> dtoList = new ArrayList<>();
+
+        for(Person person : personList){
+            dtoList.add(marshaller.convertTODTO(person));
+        }
+
+        return dtoList;
+    }
+
+
 
     @DeleteMapping(value = "/{id}")
     @ApiOperation(value = "This API call is used to delete a person")

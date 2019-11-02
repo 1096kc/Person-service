@@ -2,6 +2,8 @@ package com.example.demo.Service;
 
 import com.example.demo.model.Person;
 
+import java.util.List;
+
 public interface PersonService {
 
     Person create(Person person);
@@ -11,4 +13,6 @@ public interface PersonService {
     Person update(Person person);
 
     void delete(Long id);
+
+    List<Person> findAll();
 }
