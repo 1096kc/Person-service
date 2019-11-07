@@ -9,5 +9,7 @@ public interface PersonRepository extends CrudRepository<Person,Long> {
 
     Person findAllByFirstNameAndLastName(String firstName,String lastName);
 
+    Person findAllByUserNameAndPassword(String userName, String password);
+
     List<Person> findAll();
 }

@@ -4,13 +4,17 @@ import java.util.Objects;
 
 public class PersonDTO {
 
-    Long id;
+    private Long id;
 
-    String fullName;
+    private String fullName;
 
-    String email;
+    private String email;
 
-    Double score;
+    private Double score;
+
+    private String userName;
+
+    private String password;
 
     public Long getId() {
         return id;
@@ -44,21 +48,38 @@ public class PersonDTO {
         this.score = score;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof PersonDTO)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         PersonDTO personDTO = (PersonDTO) o;
         return Objects.equals(id, personDTO.id) &&
                 Objects.equals(fullName, personDTO.fullName) &&
                 Objects.equals(email, personDTO.email) &&
-                Objects.equals(score, personDTO.score);
+                Objects.equals(score, personDTO.score) &&
+                Objects.equals(userName, personDTO.userName) &&
+                Objects.equals(password, personDTO.password);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(id, fullName, email, score);
+        return Objects.hash(id, fullName, email, score, userName, password);
     }
 
     @Override
@@ -68,6 +89,8 @@ public class PersonDTO {
                 ", fullName='" + fullName + '\'' +
                 ", email='" + email + '\'' +
                 ", score=" + score +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

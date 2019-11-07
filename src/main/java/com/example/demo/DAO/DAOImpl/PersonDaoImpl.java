@@ -38,4 +38,9 @@ public class PersonDaoImpl implements PersonDao {
     public List<Person> findAll() {
         return personRepository.findAll();
     }
+
+    @Override
+    public Person findByUserNameAndPassword(String userName, String password) {
+        return personRepository.findAllByUserNameAndPassword(userName, password);
+    }
 }

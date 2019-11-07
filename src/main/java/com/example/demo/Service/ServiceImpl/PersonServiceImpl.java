@@ -38,4 +38,9 @@ public class PersonServiceImpl implements PersonService {
     public List<Person> findAll() {
         return personDao.findAll();
     }
+
+    @Override
+    public Person login(String userName, String password) {
+        return personDao.findByUserNameAndPassword(userName, password);
+    }
 }

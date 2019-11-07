@@ -17,6 +17,9 @@ public class Person {
 
     private String lastName;
 
+    private String userName;
+
+    private String password;
 
     private String email;
 
@@ -62,22 +65,39 @@ public class Person {
         this.score = score;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Person)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
         return Objects.equals(id, person.id) &&
                 Objects.equals(firstName, person.firstName) &&
                 Objects.equals(lastName, person.lastName) &&
+                Objects.equals(userName, person.userName) &&
+                Objects.equals(password, person.password) &&
                 Objects.equals(email, person.email) &&
                 Objects.equals(score, person.score);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(id, firstName, lastName, email, score);
+        return Objects.hash(id, firstName, lastName, userName, password, email, score);
     }
 
     @Override
@@ -86,6 +106,8 @@ public class Person {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", score=" + score +
                 '}';

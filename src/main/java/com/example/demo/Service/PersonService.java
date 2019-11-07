@@ -15,4 +15,6 @@ public interface PersonService {
     void delete(Long id);
 
     List<Person> findAll();
+
+    Person login(String userName, String password);
 }

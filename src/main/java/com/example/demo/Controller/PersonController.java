@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.DTO.LoginDTO;
 import com.example.demo.DTO.PersonDTO;
 import com.example.demo.Marsheller.PersonMarshaller;
 import com.example.demo.Service.PersonService;
@@ -80,6 +81,27 @@ public class PersonController {
         }
 
         return dtoList;
+    }
+
+    @PostMapping(value = "/login", consumes = "application/json",produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "This API call is used to retrieve all people", response = PersonDTO.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully found"),
+            @ApiResponse(code = 404, message = "The specified was not found"),
+            @ApiResponse(code = 400, message = "Missing required parameters"),
+            @ApiResponse(code = 500, message = "Service is having difficulties")
+    }
+    )
+    public PersonDTO login(@RequestBody LoginDTO loginDto) {
+
+//        System.out.println(loginDto);
+
+        Person person = personService.login(loginDto.getUserName(), loginDto.getPassword());
+
+        PersonDTO personDto = marshaller.convertTODTO(person);
+
+        return personDto;
     }
 
 

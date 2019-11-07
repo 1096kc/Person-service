@@ -15,4 +15,6 @@ public interface PersonDao {
     Person update(Person person);
 
     List<Person> findAll();
+
+    Person findByUserNameAndPassword(String userName, String password);
 }
