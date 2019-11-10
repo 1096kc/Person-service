@@ -1,80 +1,78 @@
 package com.example.demo.DTO;
 
-import java.util.Objects;
+
+import com.example.demo.model.Room;
+
+import java.util.List;
 
 public class HotelDTO {
-    private Long id;
-    private String nameWithBrand;
-    private Integer price;
-    private Integer totalRoom;
-    private Integer remainRoom;
+    private Long hId;
 
-    public Long getId() {
-        return id;
+    private String brand;
+
+    private String hotelName;
+
+    private String address;
+
+    private String city;
+
+    private String state;
+
+    private List<Room> allRooms;
+
+    public Long gethId() {
+        return hId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void sethId(Long hId) {
+        this.hId = hId;
     }
 
-    public String getNameWithBrand() {
-        return nameWithBrand;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setNameWithBrand(String nameWithBrand) {
-        this.nameWithBrand = nameWithBrand;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public Integer getPrice() {
-        return price;
+    public String getHotelName() {
+        return hotelName;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
     }
 
-    public Integer getTotalRoom() {
-        return totalRoom;
+    public String getAddress() {
+        return address;
     }
 
-    public void setTotalRoom(Integer totalRoom) {
-        this.totalRoom = totalRoom;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public Integer getRemainRoom() {
-        return remainRoom;
+    public String getCity() {
+        return city;
     }
 
-    public void setRemainRoom(Integer remainRoom) {
-        this.remainRoom = remainRoom;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        HotelDTO hotelDTO = (HotelDTO) o;
-        return Objects.equals(id, hotelDTO.id) &&
-                Objects.equals(nameWithBrand, hotelDTO.nameWithBrand) &&
-                Objects.equals(price, hotelDTO.price) &&
-                Objects.equals(totalRoom, hotelDTO.totalRoom) &&
-                Objects.equals(remainRoom, hotelDTO.remainRoom);
+    public String getState() {
+        return state;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nameWithBrand, price, totalRoom, remainRoom);
+    public void setState(String state) {
+        this.state = state;
     }
 
+    public List<Room> getAllRooms() {
+        return allRooms;
+    }
 
-    @Override
-    public String toString() {
-        return "HotelDTO{" +
-                "id=" + id +
-                ", nameWithBrand='" + nameWithBrand + '\'' +
-                ", price=" + price +
-                ", totalRoom=" + totalRoom +
-                ", remainRoom=" + remainRoom +
-                '}';
+    public void setAllRooms(List<Room> allRooms) {
+        this.allRooms = allRooms;
     }
 }

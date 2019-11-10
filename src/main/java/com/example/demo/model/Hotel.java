@@ -1,99 +1,115 @@
 package com.example.demo.model;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class Hotel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String brand;
-    private String hotelName;
-    private Integer price;
-    private Integer totalRoom;
-    private Integer remainRoom;
+    private Long hId;
 
-    public Long getId() {
-        return id;
+    private String brand;
+
+    private String hotelName;
+
+    private String address;
+
+    private String city;
+
+    private String state;
+
+    private List<Room> allRooms;
+
+    public Long gethId() {
+        return hId;
     }
 
-    public void setBrand(String Brand) {
-        this.brand = Brand;
+    public void sethId(Long hId) {
+        this.hId = hId;
     }
 
     public String getBrand() {
         return brand;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     public String getHotelName() {
         return hotelName;
     }
 
-    public void setHotelnName(String hotelName) {
+    public void setHotelName(String hotelName) {
         this.hotelName = hotelName;
     }
 
-    public Integer getPrice() {
-        return price;
+    public String getAddress() {
+        return address;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public Integer getTotalRoom() {
-        return totalRoom;
+    public String getCity() {
+        return city;
     }
 
-    public void setTotalRoom(Integer totalRoom) {
-        this.totalRoom = totalRoom;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public Integer getRemainRoom() {
-        return remainRoom;
+    public String getState() {
+        return state;
     }
 
-    public void setRemainRoom(Integer remainRoom) {
-        this.remainRoom = remainRoom;
+    public void setState(String state) {
+        this.state = state;
     }
 
+    public List<Room> getAllRooms() {
+        return allRooms;
+    }
+
+    public void setAllRooms(List<Room> allRooms) {
+        this.allRooms = allRooms;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Hotel)) return false;
         Hotel hotel = (Hotel) o;
-        return Objects.equals(id, hotel.id) &&
+        return Objects.equals(hId, hotel.hId) &&
                 Objects.equals(brand, hotel.brand) &&
                 Objects.equals(hotelName, hotel.hotelName) &&
-                Objects.equals(price, hotel.price) &&
-                Objects.equals(totalRoom, hotel.totalRoom) &&
-                Objects.equals(remainRoom, hotel.remainRoom);
+                Objects.equals(address, hotel.address) &&
+                Objects.equals(city, hotel.city) &&
+                Objects.equals(state, hotel.state);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, brand, hotelName, price, totalRoom, remainRoom);
+
+        return Objects.hash(hId, brand, hotelName, address, city, state);
     }
 
     @Override
     public String toString() {
         return "Hotel{" +
-                "id=" + id +
-                "brand=" + brand + '\'' +
+                "hId=" + hId +
+                ", brand='" + brand + '\'' +
                 ", hotelName='" + hotelName + '\'' +
-                ", price=" + price +
-                ", totalRoom=" + totalRoom +
-                ", remainRoom=" + remainRoom +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
                 '}';
     }
 }
